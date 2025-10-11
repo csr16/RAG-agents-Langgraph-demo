@@ -135,7 +135,3 @@ The agent will prompt you to enter a question and a namespace for the Pinecone i
 - **Retriever**: Uses Pyserini for buiding indexes and retriever.
 - **LLM**: Integrates Ollama to run Llama3.2 locally for answer generation.
 - **Web Search (Optional, Not implemented yet)** – Integrates with Tavily for web-based retrieval.
-
-## License
-
-This project is licensed under the MIT License.
