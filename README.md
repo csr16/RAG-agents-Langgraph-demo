@@ -90,9 +90,9 @@ The agent performs document retrieval and generation following the same pipeline
 
    try:
    ```
-   conda remove -n your_env_name -y numpy
+   conda remove -n rag-demo -y numpy
    conda clean -a -y
-   conda install -n your_env_name -y -c conda-forge numpy=1.26.4 scipy=1.11.4 scikit-learn=1.3.2
+   conda install -n rag-demo -y -c conda-forge numpy=1.26.4 scipy=1.11.4 scikit-learn=1.3.2
    pip uninstall packaging
    pip install packaging==23.2
    ```
