@@ -28,7 +28,7 @@ The agent performs document retrieval and generation following the same pipeline
 1. Clone this repository:
 
    ```
-   git clone git@github.com:csr16/RAG-agents-Langgraph-demo.git
+   git clone https://github.com/csr16/RAG-agents-Langgraph-demo.git
    cd RAG-agents-Langgraph-demo
    ```
 
