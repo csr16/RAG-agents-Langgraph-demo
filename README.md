@@ -1,15 +1,29 @@
-# Langgraph RAG Agent with Ollama and Llama3.2
+# A Minimal Demo for Constructing Langgraph RAG Agent with Ollama and Llama3.2
 
-This project implements a Retrieval-Augmented Generation (RAG) agent using Langgraph, Ollama, and Llama3.2. The agent can perform document retrieval, web searches, and generate answers based on the retrieved information.
+A Minimal Demo: Building a LangGraph RAG Agent with Ollama & Llama 3.2
+
+This repository demonstrates how to construct a **Retrieval-Augmented Generation (RAG)** agent using **LangGraph**, **Ollama**, and **Llama 3.2**.
+The agent performs document retrieval and generation following the same pipeline used in **MP1**, using **Pyserini** for retrieval and **LangGraph** for orchestration.
+
+## Features
+
+- **LangGraph-based RAG pipeline** – clean, modular agent design.
+
+- **Local LLM inference via Ollama** – no API keys required.
+
+- **Pyserini BM25 retriever** – replicates classical IR methods.
+
+- **Configurable hyperparameters** via `.env`.
+
+- **Fully offline workflow** for reproducible experiments.
 
 ## Prerequisites
 
-- Python 3.8+
-- Ollama (for running Llama3.2 locally)
-- Pinecone (for vector storage and retrieval)
-- Tavily API key (for web search functionality)
+- **Python** ≥ 3.10
+- **Conda** (recommended)
+- **Ollama** (for running Llama3.2 locally)
 
-## Installation (on Linux)
+## Installation (Linux)
 
 1. Clone this repository:
 
@@ -21,8 +35,8 @@ This project implements a Retrieval-Augmented Generation (RAG) agent using Langg
 2. Create a virtual environment and activate it:
 
    ```
-   conda create -n your_env_name python=3.10
-   conda activate your_env_name
+   conda create -n rag-demo python=3.10 -y
+   conda activate rag-demo
    ```
 
 3. Install Pyserini:
@@ -59,10 +73,6 @@ This project implements a Retrieval-Augmented Generation (RAG) agent using Langg
    mkdir -p ~/data/ollama_models
 
    source ~/.bashrc
-   conda activate your_env_name
-
-   which ollama
-   ollama -v
    ```
 
 6. Pull the Llama3.2 model:
@@ -71,7 +81,9 @@ This project implements a Retrieval-Augmented Generation (RAG) agent using Langg
    ollama pull llama3.2:3b
    ```
 
-7. If you met following problem
+7. TroubleShooting
+
+   If you encounter the following error:
    ```
    numpy.ufunc`. Received (<ufunc 'sph_legendre_p'>, <ufunc 'sph_legendre_p'>, <ufunc 'sph_legendre_p'>)
    ```
@@ -91,18 +103,15 @@ This project implements a Retrieval-Augmented Generation (RAG) agent using Langg
 
 2. Set the following environment variables in the `.env` file:
 
-   - `PINECONE_API_KEY`: Your Pinecone API key
+   - `PYSERINI_CNAME`: The dataset we want to use to build indexes and retrieve documents
    - `OLLAMA_MODEL`: llama3.2:3b
-   - `PINECONE_INDEX_NAME`: Name of your Pinecone index
-   - `COHERE_API_KEY`: Your Cohere API key for embeddings
-   - `TAVILY_API_KEY`: Your Tavily API key for web search functionality
-   - `EMBEDDING_MODEL`: embed-multilingual-v3.0
    - `RETRIEVER_K`: set the amount of docs u want to retrieve per query
-   - `WEB_SEARCH_K`: set the amount of web searches for one query
+   - `PYSERINI_K1`: The hyperparameter of bm25
+   - `PYSERINI_B`: The hyperparameter of bm25
 
 ## Usage
 
-To run the Langgraph RAG agent, execute the following command:
+Ensure your dataset is placed under the `data/` directory, then run::
 
 ``` 
 python main.py 
@@ -112,24 +121,20 @@ The agent will prompt you to enter a question and a namespace for the Pinecone i
 
 ## Project Structure
 
+- `data/`: Local document corpus (e.g., MP1 docs)
 - `main.py`: Entry point of the application
 - `agent.py`: Implements the Langgraph agent logic
 - `utils/`:
   - `config.py`: Configuration management
   - `llm.py`: Ollama LLM integration
-  - `retriever.py`: Document retrieval using Pinecone
-  - `tools.py`: Web search tool implementation
+  - `retriever.py`: Document retrieval using Pyserini
   - `state.py`: State management for Langgraph
 
 ## Key Components
 
-- **Retriever**: Uses Pinecone for vector storage and retrieval, with Cohere embeddings.
-- **Web Search**: Utilizes Tavily for web search functionality.
+- **Retriever**: Uses Pyserini for buiding indexes and retriever.
 - **LLM**: Integrates Ollama to run Llama3.2 locally for answer generation.
-
-## Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
+- **Web Search (Optional, Not implemented yet)** – Integrates with Tavily for web-based retrieval.
 
 ## License
 

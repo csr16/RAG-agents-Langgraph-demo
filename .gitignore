@@ -19,7 +19,7 @@ dist/
 build/
 indexes/
 processed_corpus/
-
+data/
 # Cache
 .cache/
 
