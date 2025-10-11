@@ -103,7 +103,7 @@ The agent performs document retrieval and generation following the same pipeline
 
 2. Set the following environment variables in the `.env` file:
 
-   - `PYSERINI_CNAME`: The dataset we want to use to build indexes and retrieve documents
+   - `PYSERINI_CNAME`: The dataset we want to use to build indexes and retrieve documents (e.g., MP1 docs)
    - `OLLAMA_MODEL`: llama3.2:3b
    - `RETRIEVER_K`: set the amount of docs u want to retrieve per query
    - `PYSERINI_K1`: The hyperparameter of bm25
