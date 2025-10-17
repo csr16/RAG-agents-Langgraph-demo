@@ -70,7 +70,7 @@ Start it manually by running:
    ollama serve
    ```
 
-Then, rerun the command above in a new terminal window..
+Then, rerun the command above in a new terminal window.
 ## Project Structure
 
 ```
