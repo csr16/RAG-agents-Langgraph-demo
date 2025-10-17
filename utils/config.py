@@ -18,8 +18,6 @@ class Config:
 
     def __repr__(self):
         return (f"Config("
-                # f"PINECONE_INDEX_NAME={self.INDEX_NAME}, "
-                # f"COHERE_EMBEDDING_MODEL={self.EMBEDDING_MODEL}, "
                 f"OLLAMA_MODEL={self.OLLAMA_MODEL}, "
                 f"RETRIEVER_K={self.RETRIEVER_K}), "
                 f"PYSERINI_CNAME={self.PYSERINI_CNAME}, "
