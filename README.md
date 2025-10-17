@@ -19,8 +19,8 @@ The agent performs document retrieval following the same pipeline used in **MP1*
 
 2. Use the environment configured in MP1. 
 
-The following steps assume that **Pyserini** has already been installed; if not, please refer to MP1 for installation instructions.
-Additionally, move the `data/` directory used in MP1 to the root of this project.
+   The following steps assume that **Pyserini** has already been installed; if not, please refer to MP1 for installation instructions.
+   Additionally, move the `data/` directory used in MP1 to the root of this project.
 
 3. Install the required packages:
 
@@ -30,8 +30,8 @@ Additionally, move the `data/` directory used in MP1 to the root of this project
 
 4. Install Ollama 
 
-Follow the official instructions at https://ollama.com/download/. 
-For example, on linux:
+   Follow the official instructions at https://ollama.com/download/. 
+   For example, on linux:
 
    ```
    curl -fsSL https://ollama.com/install.sh | sh
